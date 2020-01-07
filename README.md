@@ -21,8 +21,8 @@ A bookstore application as part of practicing using **Redux**
 
 ### Setup
 ```
-git clone git@github.com:mosaaleb/react-calculator.git
-cd react-calculator
+git clone git@github.com:mosaaleb/redux-bookstore.git
+cd redux-bookstore
 yarn install
 ```
 **Server**
