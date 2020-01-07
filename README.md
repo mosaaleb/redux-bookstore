@@ -1,5 +1,4 @@
 # Redux-Bookstore
-
 > A react-redux powered bookstore
 
 ![screenshot]()
