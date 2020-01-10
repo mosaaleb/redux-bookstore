@@ -4,13 +4,13 @@ const initState = {
   books: [
     {
       id: uuid(),
-      title: 'one',
-      category: 'one Category'
+      title: 'Animal Farm',
+      category: 'Satire'
     },
     {
       id: uuid(),
-      title: 'two',
-      category: 'two Category'
+      title: 'The Great Gatsby',
+      category: 'Biography'
     }
   ]
 };
@@ -27,6 +27,11 @@ const bookReducer = (state = initState, action) => {
             category: action.category
           }
         ]
+      };
+    case 'REMOVE_BOOK':
+      return {
+        ...state,
+        books: state.books.filter((book) => (book.id !== action.id))
       };
     default:
       return state;

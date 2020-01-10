@@ -56,12 +56,12 @@ const AddBookForm = ({ addBook }) => {
         <label htmlFor="book-category">
           Book Category
           <select
-            value={bookCategoryInput}
             id="book-category"
+            value={bookCategoryInput}
             className="border-2 block"
             onChange={(e) => setBookCategoryInput(e.target.value)}
           >
-            <option value="" selected="selected" hidden="hidden">Choose Category</option>
+            <option value="default" hidden="hidden">Choose Category</option>
             {booksCategories.map((category) => (
               <option key={category} value={category}>
                 {category}
