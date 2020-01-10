@@ -14,19 +14,27 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-
 const AddBookForm = ({ addBook }) => {
-  const [bookNameInput, setBookNameInput] = useState('');
+  const [bookTitleInput, setBookTitleInput] = useState('');
   const [bookCategoryInput, setBookCategoryInput] = useState('');
+  const booksCategories = [
+    'Kids',
+    'Action',
+    'Horror',
+    'Sci-Fi',
+    'History',
+    'Learning',
+    'Biography'
+  ];
 
   const handleAddBook = () => {
     addBook({
       id: uuid(),
-      title: bookNameInput,
+      title: bookTitleInput,
       category: bookCategoryInput
     });
 
-    setBookNameInput('');
+    setBookTitleInput('');
     setBookCategoryInput('');
   };
 
@@ -37,24 +45,29 @@ const AddBookForm = ({ addBook }) => {
           Book Name
           <input
             type="text"
-            value={bookNameInput}
+            value={bookTitleInput}
             id="book-name"
             className="border-2 block"
-            onChange={(e) => setBookNameInput(e.target.value)}
+            onChange={(e) => setBookTitleInput(e.target.value)}
           />
         </label>
-
       </div>
       <div className="p-1">
         <label htmlFor="book-category">
           Book Category
-          <input
-            type="text"
+          <select
             value={bookCategoryInput}
             id="book-category"
             className="border-2 block"
             onChange={(e) => setBookCategoryInput(e.target.value)}
-          />
+          >
+            <option value="" selected="selected" hidden="hidden">Choose Category</option>
+            {booksCategories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
         </label>
       </div>
       <div className="p-1">
