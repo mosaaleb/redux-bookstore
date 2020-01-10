@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Book from '../components/Book';
 
-const mapStateToProps = (state) => ({ books: state.bookReducer.books });
+const mapStateToProps = (state) => ({ books: state.books });
 
 const BookList = ({ books }) => {
   const renderBook = (book) => <Book key={book.id} book={book} />;
