@@ -1,8 +1,11 @@
 import React from 'react';
+import BookList from './components/BookList';
+import AddBookForm from './components/AddBookForm';
 
 const App = () => (
-  <div className="flex h-screen justify-center items-center bg-gray-900">
-    <p className="text-blue-600 font-bold text-5xl">Redux</p>
+  <div>
+    <BookList />
+    <AddBookForm />
   </div>
 );
 
