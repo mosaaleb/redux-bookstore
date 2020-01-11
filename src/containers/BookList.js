@@ -4,10 +4,16 @@ import { connect } from 'react-redux';
 import Book from '../components/Book';
 import CategoryFilter from './CategoryFilter';
 
-const mapStateToProps = (state) => ({ books: state.books });
+const mapStateToProps = (state) => ({
+  books: state.books,
+  filter: state.filter
+});
 
-const BookList = ({ books }) => {
+const BookList = ({ books, filter }) => {
   const renderBook = (book) => <Book key={book.id} book={book} />;
+
+  const filteredBooks = filter === 'All' ? books
+    : books.filter((book) => book.category === filter);
 
   return (
     <div>
@@ -20,13 +26,14 @@ const BookList = ({ books }) => {
             <th className="px-4 py-2">Category</th>
           </tr>
         </thead>
-        <tbody>{books.map(renderBook)}</tbody>
+        <tbody>{filteredBooks.map(renderBook)}</tbody>
       </table>
     </div>
   );
 };
 
 BookList.propTypes = {
+  filter: PropTypes.string.isRequired,
   books: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 

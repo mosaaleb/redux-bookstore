@@ -3,16 +3,40 @@ import uuid from 'uuid/v1';
 const initState = [
   {
     id: uuid(),
-    title: 'Animal Farm',
-    category: 'Satire'
+    title: 'Mickey magazine',
+    category: 'Kids'
   },
   {
     id: uuid(),
-    title: 'The Great Gatsby',
+    title: 'Dracula',
+    category: 'Horror'
+  },
+  {
+    id: uuid(),
+    title: 'Malcolm X',
     category: 'Biography'
+  },
+  {
+    id: uuid(),
+    title: 'Stormbreaker',
+    category: 'Action'
+  },
+  {
+    id: uuid(),
+    title: 'Voices from Chernobyl',
+    category: 'History'
+  },
+  {
+    id: uuid(),
+    title: 'Deep Learning',
+    category: 'Learning'
+  },
+  {
+    id: uuid(),
+    title: '1984',
+    category: 'Sci-Fi'
   }
 ];
-
 
 const books = (state = initState, action) => {
   switch (action.type) {
