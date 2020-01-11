@@ -6,7 +6,7 @@ const configureStore = () => {
   const store = createStore(appReducer, Storage.loadState());
 
   store.subscribe(() => {
-    Storage.saveState(store.getState());
+    Storage.saveState({ books: store.getState().books });
   });
 
   return store;
