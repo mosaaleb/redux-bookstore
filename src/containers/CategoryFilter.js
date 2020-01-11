@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const CategoryFilter = () => {
-  const [bookCategoryFilter, setBookCategoryFilter] = useState('');
+const mapDispatchToProps = (dispatch) => ({
+  setFilter: (filter) => {
+    dispatch({
+      filter,
+      type: 'CHANGE_FILTER'
+    });
+  }
+});
+
+const CategoryFilter = ({ setFilter }) => {
   const booksCategories = [
     'Kids',
     'Action',
@@ -11,15 +21,19 @@ const CategoryFilter = () => {
     'Learning',
     'Biography'
   ];
+
+  const handleFilter = (e) => {
+    setFilter(e.target.value);
+  };
+
   return (
     <div className="p-1">
       <label htmlFor="book-category">
         Filter by Category
         <select
           id="book-category"
-          value={bookCategoryFilter}
           className="border-2 block"
-          onChange={(e) => setBookCategoryFilter(e.target.value)}
+          onChange={handleFilter}
         >
           <option value="default" hidden="hidden">
             Choose Filter
@@ -35,4 +49,8 @@ const CategoryFilter = () => {
   );
 };
 
-export default CategoryFilter;
+CategoryFilter.propTypes = {
+  setFilter: PropTypes.func.isRequired
+};
+
+export default connect(null, mapDispatchToProps)(CategoryFilter);

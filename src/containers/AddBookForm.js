@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v1';
 
+// TODO: reset filter when filter is choosen when adding book
+
 const mapDispatchToProps = (dispatch) => ({
   addBook: (book) => {
     dispatch({
