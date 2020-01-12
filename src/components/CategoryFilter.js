@@ -5,6 +5,7 @@ import { setFilter } from '../actions/filterActions';
 
 const CategoryFilter = ({ setFilter }) => {
   const booksCategories = [
+    'All',
     'Kids',
     'Action',
     'Horror',
@@ -23,9 +24,6 @@ const CategoryFilter = ({ setFilter }) => {
           className="border-2 block"
           onChange={(e) => setFilter(e.target.value)}
         >
-          <option value="default" hidden="hidden">
-            Choose Filter
-          </option>
           {booksCategories.map((category) => (
             <option key={category} value={category}>
               {category}

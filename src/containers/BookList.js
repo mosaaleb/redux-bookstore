@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Book from '../components/Book';
-import CategoryFilter from './CategoryFilter';
+import CategoryFilter from '../components/CategoryFilter';
 
 // TODO: extract filteredBooks into its own component (visibleBooks) with its dispatch
 // filteredBooks > bookList > Book
