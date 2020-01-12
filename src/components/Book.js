@@ -1,15 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
-const mapDispatchToProps = (dispatch) => ({
-  removeBook: (id) => {
-    dispatch({
-      id,
-      type: 'REMOVE_BOOK'
-    });
-  }
-});
+import { removeBook } from '../actions/bookActions';
 
 const Book = ({ removeBook, book }) => (
   <tr>
@@ -32,5 +24,11 @@ Book.propTypes = {
   }).isRequired,
   removeBook: PropTypes.func.isRequired
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  removeBook: (id) => {
+    dispatch(removeBook(id));
+  }
+});
 
 export default connect(null, mapDispatchToProps)(Book);
