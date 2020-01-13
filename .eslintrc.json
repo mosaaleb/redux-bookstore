@@ -25,10 +25,7 @@
     "rules": {
         "comma-dangle": ["error", "never"],
         "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
-        "jsx-a11y/label-has-associated-control": [ 2, {
-            "labelComponents": ["label"],
-            "labelAttributes": ["htmlFor"],
-            "controlComponents": ["input"]
-        }]
+        "import/no-unresolved": "off",
+        "no-shadow": "off"
     }
 }

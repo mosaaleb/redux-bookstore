@@ -1,6 +1,17 @@
+import './stylesheets/tailwind.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './stylesheets/tailwind.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import App from './components/App';
+import appReducer from './reducers/index';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const bookStore = createStore(appReducer);
+
+ReactDOM.render(
+  <Provider store={bookStore}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
