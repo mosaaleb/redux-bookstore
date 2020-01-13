@@ -13,7 +13,7 @@ const BookList = ({ books, filter }) => {
     : books.filter((book) => book.category === filter);
 
   return (
-    <div className="p-3 sm:w-4/5 sm:mx-auto sm:px-0 font-roboto">
+    <div className="p-3 sm:w-4/5 sm:mx-auto sm:px-0 font-roboto mb-5">
       <div>{filteredBooks.map(renderBook)}</div>
     </div>
   );

@@ -60,7 +60,9 @@ const books = (state = initState, action) => {
         {
           id: action.id,
           title: action.title,
-          category: action.category
+          author: action.author,
+          category: action.category,
+          progress: action.progress
         }
       ];
     case 'REMOVE_BOOK':
