@@ -1,12 +1,14 @@
 import React from 'react';
 import BookList from '../../containers/BookList';
 import AddBookForm from '../../containers/AddBookForm';
+import CategoryFilter from '../CategoryFilter';
 
 const Content = () => (
-  <div>
+  <main>
+    <CategoryFilter />
     <BookList />
     <AddBookForm />
-  </div>
+  </main>
 );
 
 export default Content;

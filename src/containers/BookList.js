@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Book from '../components/Book';
-import CategoryFilter from '../components/CategoryFilter';
 
 // TODO: extract filteredBooks into its own component (visibleBooks) with its dispatch
 // filteredBooks > bookList > Book
@@ -14,18 +13,8 @@ const BookList = ({ books, filter }) => {
     : books.filter((book) => book.category === filter);
 
   return (
-    <div>
-      <CategoryFilter />
-      <table className="table-auto">
-        <thead>
-          <tr>
-            <th className="px-4 py-2">Id</th>
-            <th className="px-4 py-2">Title</th>
-            <th className="px-4 py-2">Category</th>
-          </tr>
-        </thead>
-        <tbody>{filteredBooks.map(renderBook)}</tbody>
-      </table>
+    <div className="p-3 sm:w-4/5 sm:mx-auto sm:px-0 font-roboto">
+      <div>{filteredBooks.map(renderBook)}</div>
     </div>
   );
 };

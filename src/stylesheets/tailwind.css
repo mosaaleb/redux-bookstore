@@ -3657,6 +3657,14 @@ video {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.font-roboto {
+  font-family: Roboto Slab, serif;
+}
+
+.font-montserrat {
+  font-family: Montserrat, sans-serif;
+}
+
 .font-hairline {
   font-weight: 100;
 }
@@ -11387,6 +11395,28 @@ video {
   z-index: auto;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
+
+.wrapper {
+  width: 100px; /* Set the size of the progress bar */
+  height: 100px;
+  position: absolute; /* Enable clipping */
+  clip: rect(0px, 100px, 100px, 50px); /* Hide half of the progress bar */
+}
+
+/* Set the sizes of the elements that make up the progress bar */
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border: 10px solid green;
+  border-radius: 50px;
+  position: absolute;
+  clip: rect(0px, 50px, 100px, 0px);
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
@@ -14416,6 +14446,14 @@ video {
 
   .sm\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .sm\:font-roboto {
+    font-family: Roboto Slab, serif;
+  }
+
+  .sm\:font-montserrat {
+    font-family: Montserrat, sans-serif;
   }
 
   .sm\:font-hairline {
@@ -25180,6 +25218,14 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .md\:font-roboto {
+    font-family: Roboto Slab, serif;
+  }
+
+  .md\:font-montserrat {
+    font-family: Montserrat, sans-serif;
+  }
+
   .md\:font-hairline {
     font-weight: 100;
   }
@@ -35942,6 +35988,14 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .lg\:font-roboto {
+    font-family: Roboto Slab, serif;
+  }
+
+  .lg\:font-montserrat {
+    font-family: Montserrat, sans-serif;
+  }
+
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -46702,6 +46756,14 @@ video {
 
   .xl\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .xl\:font-roboto {
+    font-family: Roboto Slab, serif;
+  }
+
+  .xl\:font-montserrat {
+    font-family: Montserrat, sans-serif;
   }
 
   .xl\:font-hairline {
