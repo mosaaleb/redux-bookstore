@@ -2,17 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v1';
+import { addBook } from '../actions/bookActions';
 
-const mapDispatchToProps = (dispatch) => ({
-  addBook: (book) => {
-    dispatch({
-      id: book.id,
-      type: 'ADD_BOOK',
-      title: book.title,
-      category: book.category
-    });
-  }
-});
+// TODO: reset filter when filter is choosen when adding book
 
 const AddBookForm = ({ addBook }) => {
   const [bookTitleInput, setBookTitleInput] = useState('');
@@ -61,7 +53,9 @@ const AddBookForm = ({ addBook }) => {
             className="border-2 block"
             onChange={(e) => setBookCategoryInput(e.target.value)}
           >
-            <option value="default" hidden="hidden">Choose Category</option>
+            <option value="default" hidden="hidden">
+              Choose Category
+            </option>
             {booksCategories.map((category) => (
               <option key={category} value={category}>
                 {category}
@@ -82,5 +76,11 @@ const AddBookForm = ({ addBook }) => {
 AddBookForm.propTypes = {
   addBook: PropTypes.func.isRequired
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  addBook: (book) => {
+    dispatch(addBook(book));
+  }
+});
 
 export default connect(null, mapDispatchToProps)(AddBookForm);
