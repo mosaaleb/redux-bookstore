@@ -4,7 +4,7 @@ import AddBookForm from '../../containers/AddBookForm';
 import CategoryFilter from '../CategoryFilter';
 
 const Content = () => (
-  <main>
+  <main className="flex-grow">
     <CategoryFilter />
     <BookList />
     <AddBookForm />

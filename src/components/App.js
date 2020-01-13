@@ -4,7 +4,7 @@ import Content from './layouts/Content';
 import Footer from './layouts/Footer';
 
 const App = () => (
-  <div className="bg-gray-100">
+  <div className="flex flex-col min-h-screen bg-gray-100">
     <Header />
     <Content />
     <Footer />
