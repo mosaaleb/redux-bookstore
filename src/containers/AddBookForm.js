@@ -6,8 +6,9 @@ import { addBook } from '../actions/bookActions';
 
 // TODO: reset filter when filter is choosen when adding book
 
-const AddBookForm = ({ addBook }) => {
+const AddBookForm = ({ addBook, setIsFormVisible }) => {
   const [bookTitleInput, setBookTitleInput] = useState('');
+  const [bookAuthorInput, setBookAuthorInput] = useState('');
   const [bookCategoryInput, setBookCategoryInput] = useState('');
   const booksCategories = [
     'Kids',
@@ -23,49 +24,55 @@ const AddBookForm = ({ addBook }) => {
     addBook({
       id: uuid(),
       title: bookTitleInput,
-      category: bookCategoryInput
+      author: bookAuthorInput,
+      category: bookCategoryInput,
+      progress: '0'
     });
 
     setBookTitleInput('');
     setBookCategoryInput('');
+    setIsFormVisible(false);
   };
 
   return (
-    <div>
-      <div className="p-1">
-        <label htmlFor="book-name">
-          Book Name
-          <input
-            type="text"
-            value={bookTitleInput}
-            id="book-name"
-            className="border-2 block"
-            onChange={(e) => setBookTitleInput(e.target.value)}
-          />
-        </label>
-      </div>
-      <div className="p-1">
-        <label htmlFor="book-category">
-          Book Category
-          <select
-            id="book-category"
-            value={bookCategoryInput}
-            className="border-2 block"
-            onChange={(e) => setBookCategoryInput(e.target.value)}
-          >
-            <option value="default" hidden="hidden">
-              Choose Category
+    <div className="fixed right-0 top-0 bg-smoke-light w-full h-full flex justify-center items-center font-roboto">
+      <div className="p-8 bg-white max-w-md m-auto rounded flex flex-col justify-between h-64">
+        <input
+          type="text"
+          value={bookTitleInput}
+          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Book title"
+          onChange={(e) => setBookTitleInput(e.target.value)}
+        />
+
+        <input
+          type="text"
+          value={bookAuthorInput}
+          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Book author"
+          onChange={(e) => setBookAuthorInput(e.target.value)}
+        />
+
+        <select
+          value={bookCategoryInput}
+          className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          onChange={(e) => setBookCategoryInput(e.target.value)}
+        >
+          <option value="default" hidden="hidden">
+            Choose Category
+          </option>
+          {booksCategories.map((category) => (
+            <option key={category} value={category}>
+              {category}
             </option>
-            {booksCategories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
-      <div className="p-1">
-        <button type="button" className="border-2" onClick={handleAddBook}>
+          ))}
+        </select>
+
+        <button
+          type="button"
+          className="text-sm px-3 py-2 uppercase bg-blue-600 text-gray-100 rounded"
+          onClick={handleAddBook}
+        >
           Add Book
         </button>
       </div>
@@ -74,7 +81,8 @@ const AddBookForm = ({ addBook }) => {
 };
 
 AddBookForm.propTypes = {
-  addBook: PropTypes.func.isRequired
+  addBook: PropTypes.func.isRequired,
+  setIsFormVisible: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({
