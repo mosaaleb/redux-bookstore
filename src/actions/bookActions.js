@@ -3,7 +3,9 @@ export const addBook = (book) => ({
   id: book.id,
   type: 'ADD_BOOK',
   title: book.title,
-  category: book.category
+  author: book.author,
+  category: book.category,
+  progress: book.progress
 });
 
 export const removeBook = (id) => ({

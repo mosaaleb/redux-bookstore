@@ -4,37 +4,51 @@ const initState = [
   {
     id: uuid(),
     title: 'Mickey magazine',
-    category: 'Kids'
+    category: 'Kids',
+    author: '‎Walt Disney‎',
+    progress: '76'
   },
   {
     id: uuid(),
     title: 'Dracula',
-    category: 'Horror'
+    category: 'Horror',
+    author: 'Bram Stoker',
+    progress: '27'
   },
   {
     id: uuid(),
-    title: 'Malcolm X',
-    category: 'Biography'
+    title: 'The Autobiography of Malcolm X',
+    category: 'Biography',
+    author: 'Malcolm X',
+    progress: '89'
   },
   {
     id: uuid(),
     title: 'Stormbreaker',
-    category: 'Action'
+    category: 'Action',
+    author: 'Anthony Horowitz',
+    progress: '96'
   },
   {
     id: uuid(),
     title: 'Voices from Chernobyl',
-    category: 'History'
+    category: 'History',
+    author: 'Svetlana Alexievich',
+    progress: '23'
   },
   {
     id: uuid(),
-    title: 'Deep Learning',
-    category: 'Learning'
+    title: 'Practical Object-Oriented Design in Ruby: An Agile Primer',
+    category: 'Learning',
+    author: 'Sandi Metz',
+    progress: '56'
   },
   {
     id: uuid(),
     title: '1984',
-    category: 'Sci-Fi'
+    category: 'Sci-Fi',
+    author: 'George Orwell',
+    progress: '48'
   }
 ];
 
@@ -46,7 +60,9 @@ const books = (state = initState, action) => {
         {
           id: action.id,
           title: action.title,
-          category: action.category
+          author: action.author,
+          category: action.category,
+          progress: action.progress
         }
       ];
     case 'REMOVE_BOOK':

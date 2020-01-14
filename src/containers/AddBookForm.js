@@ -3,12 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v1';
 import { addBook } from '../actions/bookActions';
+import validateInput from '../validations/newBook';
 
 // TODO: reset filter when filter is choosen when adding book
 
-const AddBookForm = ({ addBook }) => {
+const AddBookForm = ({ addBook, setIsFormVisible }) => {
   const [bookTitleInput, setBookTitleInput] = useState('');
+  const [bookAuthorInput, setBookAuthorInput] = useState('');
   const [bookCategoryInput, setBookCategoryInput] = useState('');
+
+  const [validations, setValidations] = useState({ errors: {}, isValid: true });
+
   const booksCategories = [
     'Kids',
     'Action',
@@ -20,38 +25,62 @@ const AddBookForm = ({ addBook }) => {
   ];
 
   const handleAddBook = () => {
-    addBook({
-      id: uuid(),
-      title: bookTitleInput,
-      category: bookCategoryInput
-    });
+    const { errors, isValid } = validateInput(
+      bookTitleInput,
+      bookAuthorInput,
+      bookCategoryInput
+    );
+    if (isValid) {
+      addBook({
+        id: uuid(),
+        title: bookTitleInput,
+        author: bookAuthorInput,
+        category: bookCategoryInput,
+        progress: '0'
+      });
 
-    setBookTitleInput('');
-    setBookCategoryInput('');
+      setBookTitleInput('');
+      setBookCategoryInput('');
+      setIsFormVisible(false);
+    } else {
+      setValidations({ errors, isValid });
+    }
   };
 
   return (
-    <div>
-      <div className="p-1">
-        <label htmlFor="book-name">
-          Book Name
+    <div className="fixed right-0 top-0 bg-smoke-light w-full h-full flex justify-center items-center font-roboto">
+      <div className="p-8 bg-white max-w-md rounded flex flex-col justify-between w-4/5">
+        <div className="my-4">
           <input
             type="text"
             value={bookTitleInput}
-            id="book-name"
-            className="border-2 block"
+            placeholder="Book title"
             onChange={(e) => setBookTitleInput(e.target.value)}
+            className="w-full shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
-        </label>
-      </div>
-      <div className="p-1">
-        <label htmlFor="book-category">
-          Book Category
+          {validations.isValid ? null : (
+            <p className="text-red-500 text-sm">{validations.errors.title}</p>
+          )}
+        </div>
+
+        <div className="my-4">
+          <input
+            type="text"
+            value={bookAuthorInput}
+            placeholder="Book author"
+            onChange={(e) => setBookAuthorInput(e.target.value)}
+            className="w-full shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          {validations.isValid ? null : (
+            <p className="text-red-500 text-sm">{validations.errors.author}</p>
+          )}
+        </div>
+
+        <div className="my-4">
           <select
-            id="book-category"
             value={bookCategoryInput}
-            className="border-2 block"
             onChange={(e) => setBookCategoryInput(e.target.value)}
+            className="w-full block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           >
             <option value="default" hidden="hidden">
               Choose Category
@@ -62,19 +91,28 @@ const AddBookForm = ({ addBook }) => {
               </option>
             ))}
           </select>
-        </label>
-      </div>
-      <div className="p-1">
-        <button type="button" className="border-2" onClick={handleAddBook}>
-          Add Book
-        </button>
+          {validations.isValid ? null : (
+            <p className="text-red-500 text-sm">{validations.errors.category}</p>
+          )}
+        </div>
+
+        <div className="my-4">
+          <button
+            type="button"
+            onClick={handleAddBook}
+            className="w-full text-sm px-3 py-2 uppercase bg-blue-600 text-gray-100 rounded"
+          >
+            Add Book
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
 AddBookForm.propTypes = {
-  addBook: PropTypes.func.isRequired
+  addBook: PropTypes.func.isRequired,
+  setIsFormVisible: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({

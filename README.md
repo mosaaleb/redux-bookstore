@@ -1,15 +1,14 @@
 # Redux-Bookstore
 > A react-redux powered bookstore
 
-![screenshot]()
-
-Additional description about the project and its features.
+![screenshot](screenshot.png)
 
 ## Built With
 
+- TailwindCSS
 - React
 - Redux
-- technologies used
+- Heroku Deployment
 
 ## Live Demo
 
@@ -18,6 +17,12 @@ Additional description about the project and its features.
 
 ## Introduction
 A bookstore application as part of practicing using **Redux**
+
+**Features**
+- Storing books in Redux Store
+- Filtering books by category
+- Adding new book with validations
+- Build with Responsive design
 
 ### Setup
 ```
@@ -31,7 +36,7 @@ yarn react-scripts start
 ```
 
 
-## Authors
+## Author
 
 - [Muhammad Ebeid](https://github.com/mosaaleb)
 
