@@ -49,7 +49,7 @@ const AddBookForm = ({ addBook, setIsFormVisible }) => {
 
   return (
     <div className="fixed right-0 top-0 bg-smoke-light w-full h-full flex justify-center items-center font-roboto">
-      <div className="p-8 bg-white rounded flex flex-col justify-between w-4/5">
+      <div className="p-8 bg-white max-w-md rounded flex flex-col justify-between w-4/5">
         <div className="my-4">
           <input
             type="text"
