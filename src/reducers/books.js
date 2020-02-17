@@ -67,6 +67,9 @@ const books = (state = initState, action) => {
       ];
     case 'REMOVE_BOOK':
       return state.filter((book) => book.id !== action.id);
+    case 'UPDATE_BOOK_PROGRESS':
+      return state
+        .map((book) => (book.id === action.id ? { ...book, progress: action.progress } : book));
     default:
       return state;
   }

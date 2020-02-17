@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const addBook = (book) => ({
   id: book.id,
   type: 'ADD_BOOK',
@@ -11,4 +10,10 @@ export const addBook = (book) => ({
 export const removeBook = (id) => ({
   id,
   type: 'REMOVE_BOOK'
+});
+
+export const updateBookProgress = (id, progress) => ({
+  id,
+  progress,
+  type: 'UPDATE_BOOK_PROGRESS'
 });
