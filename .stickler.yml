@@ -3,4 +3,5 @@ linters:
     config: './.eslintrc.json'
 files:
     ignore:
-      - 'tailwind.js'
+      - 'postcss.config.js'
+      - 'tailwind.config.js'

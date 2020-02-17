@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
@@ -17,3 +16,5 @@
     border-radius: 50%;
   }
 }
+
+@tailwind utilities;
