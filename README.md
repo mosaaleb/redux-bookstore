@@ -23,6 +23,7 @@ A bookstore application as part of practicing using **Redux**
 - Filtering books by category
 - Adding new book with validations
 - Build with Responsive design
+- Update book reading progress
 
 ### Setup
 ```
