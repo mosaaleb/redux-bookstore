@@ -11475,6 +11475,19 @@ video {
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="range"]::-webkit-slider-thumb {
+    width: 15px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    cursor: ew-resize;
+    background: #FFF;
+    box-shadow: -405px 0 0 400px #605E5C;
+    border-radius: 50%;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
