@@ -38,8 +38,9 @@ yarn react-scripts start
 
 
 ## Author
-
-- [Muhammad Ebeid](https://github.com/mosaaleb)
+- [GitHub](https://github.com/mosaaleb)
+- [LinkedIn](https://www.linkedin.com/in/muhammadebeid/)
+- [muhammed.ebeid@gmail.com](muhammed.ebeid@gmail.com)
 
 ## 📝 License
 This project is [MIT](lic.url) licensed.
