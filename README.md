@@ -19,11 +19,11 @@
 A bookstore application as part of practicing using **Redux**
 
 **Features**
-- Storing books in Redux Store
-- Filtering books by category
-- Adding new book with validations
-- Build with Responsive design
-- Update book reading progress
+- Storing books in Redux Store.
+- Filtering books by category.
+- Adding new book with validations.
+- Build with Responsive design.
+- Update book reading progress.
 
 ### Setup
 ```
